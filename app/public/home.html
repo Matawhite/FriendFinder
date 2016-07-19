@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <a href="/survey">Survey</a>
+    <button id="test" type="button" name="post">Post</button>
+    <script type="text/javascript">
+      $('#test').on('click', function(){
+        var item = {
+          id: 2,
+          name: 'test',
+          score: [],
+        };
+
+        $.post('http://localhost:8080/api/newdog', item).done(function(res){
+          console.log(res)
+        })
+      })
+    </script>
+  </body>
+</html>
