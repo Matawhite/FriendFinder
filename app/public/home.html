@@ -3,24 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://localhost:8080/css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1>Hello World</h1>
-    <a href="/survey">Survey</a>
-    <button id="test" type="button" name="post">Post</button>
-    <script type="text/javascript">
-      $('#test').on('click', function(){
-        var item = {
-          id: 2,
-          name: 'test',
-          score: [],
-        };
-
-        $.post('http://localhost:8080/api/newdog', item).done(function(res){
-          console.log(res)
-        })
-      })
-    </script>
+    <div class="container">
+        <div class="well">
+          <h1>Cuddle Buddies</h1>
+          <h3>
+            Fill out our simple survey and we'll match you with a perfect dog to cuddle!
+          </h3>
+          <a href="/survey">Find me a buddy!</a>
+          <br>
+          <a href="/add">Add a buddy!</a>
+        </div>
+    </div> <!-- end main container -->
   </body>
 </html>

@@ -12,6 +12,9 @@ router.get('/survey', function(req, res){
 	res.sendFile(path.join(__dirname, '../public/survey.html'));
 })
 
+router.get('/add', function(req, res){
+	res.sendFile(path.join(__dirname, '../public/add.html'));
+})
 router.get('/api/:dogs?', function(req, res){
 // refactor this
 	var chosen = req.params.dogs;

@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
+app.use(express.static('public'));
+
 //html routes
 app.use('/', require('./app/routing/html-routes'));
 app.use('/survey', require('./app/routing/html-routes'));
