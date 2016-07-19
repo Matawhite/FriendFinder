@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
-app.use(express.static('public'));
+//not working
+app.use("/assets", express.static(__dirname + "/public/assets/css"));
 
 //html routes
 app.use('/', require('./app/routing/html-routes'));

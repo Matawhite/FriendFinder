@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 var path = require('path');
-// var dogs = require('../data/dogs');
+var dogs = require('../data/dogs');
 
 router.get('/', function(req, res){
 	res.sendFile(path.join(__dirname, '../public/home.html'));
@@ -50,24 +50,5 @@ router.post('/api/newdog', function(req, res){
 
 })
 
-var dogs = [
-	{
-    "id" : 1,
-		"breed" : 'husky',
-		"imgURL" : 'http://cdn1-www.dogtime.com/assets/uploads/gallery/siberian-husky-dog-breed-pictures/siberian-husky-dog-breed-pictures-1.jpg',
-		"scores" : [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10
-      ],
-    },
-  ];
 
 module.exports = router
