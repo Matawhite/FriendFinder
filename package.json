@@ -4,7 +4,7 @@
   "description": "dog breed finder app",
   "main": "server.js",
   "scripts": {
-    "test": "none",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "engines": {

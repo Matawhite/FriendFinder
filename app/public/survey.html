@@ -113,7 +113,7 @@
         };
         console.log(surveyAns);
 
-        $.get('http://localhost:3000/api/').done(function(data){
+        $.get('https://localhost:5000/api/').done(function(data){
           $('#dogBreed').html(data.dogs[0].breed);
           $('#dogImg').append("<p>Target Hit</p>");
         })
