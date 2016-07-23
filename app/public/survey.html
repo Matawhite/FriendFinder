@@ -80,92 +80,17 @@
           <option>4</option>
           <option>5</option>
         </select>
-          <br>
-        <p>
-          Question 6:
-        </p>
-        <label for="sel1">I perfer the city over the country.</label>
-        <br>
-        <em>1 stongly disagree; 5 I strongly agree</em>
-        <select class="form-control" id="sel6">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-          <br>
-        <p>
-          Question 7:
-        </p>
-        <label for="sel1">I am pretty regular about get hair cuts/hair styled.</label>
-        <br>
-        <em>1 stongly disagree; 5 I strongly agree</em>
-        <select class="form-control" id="sel7">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-          <br>
-        <p>
-          Question 8:
-        </p>
-        <label for="sel1">People consider me more of a follower than a leader.</label>
-        <br>
-        <em>1 stongly disagree; 5 I strongly agree</em>
-        <select class="form-control" id="sel8">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-          <br>
-        <p>
-          Question 9:
-        </p>
-        <label for="sel1">I like to sleep in on the weekends.</label>
-        <br>
-        <em>1 stongly disagree; 5 I strongly agree</em>
-        <select class="form-control" id="sel9">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-          <br>
-        <p>
-          Question 10:
-        </p>
-        <label for="sel1">I perfer to travel.</label>
-        <br>
-        <em>1 stongly disagree; 5 I strongly agree</em>
-        <select class="form-control" id="sel10">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
       </div>
-        <button id="submit" type="button" name="button">submit</button>
+        <button id="survey-submit" type="button" name="button">submit</button>
     </div> <!-- end main container -->
     <script type="text/javascript">
-      $('#submit').on('click', function(){
+      $('#survey-submit').on('click', function(){
         var surveyAns = {
           val1: $('#sel1').val(),
           val2: $('#sel2').val(),
           val3: $('#sel3').val(),
           val4: $('#sel4').val(),
           val5: $('#sel5').val(),
-          val6: $('#sel6').val(),
-          val7: $('#sel7').val(),
-          val8: $('#sel8').val(),
-          val9: $('#sel9').val(),
-          val10: $('#sel10').val(),
         };
         console.log(surveyAns);
         //consider a get request where I pull data from the api then do for loop

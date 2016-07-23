@@ -2,31 +2,32 @@ var express = require('express');
 var app = express();
 var apiRouter = express.Router();
 var path = require('path');
-var arrDogs = require('../data/dogs');
+var DataDogs = require('../data/dogs');
 
-apiRouter.get('/api/:dogs?', function(req, res){
-  console.log('route reached')
+module.exports = function(app) {
+  app.get("/api/:dog?", function(req,res) {
+    // refactor this
+    	var chosen = req.params.dog;
+    	if(chosen){
+        console.log(true)
+    		for (var i = 0; i < DataDogs.dogs.length; i++){
+    			if (chosen == DataDogs.dogs[i].breed){
+    				res.json(DataDogs.dogs[i]);
+    				return;
+    			}
+    		}
+    		res.json(false);
+    	}
 
-// refactor this
-	var chosen = req.params.arrDogs.dogs;
+    	else{
+    		res.json(DataDogs);
+    	}
+    });
 
-	if(chosen){
-		console.log(chosen);
-
-		for (var i=0; i < arrDogs.dogsdogs.length; i++){
-
-			if (chosen == arrDogs.dogs[i].id){
-				res.json(arrDogs.dogs[i]);
-				return;
-			}
-		}
-
-		res.json(false);
-	}
-
-	else{
-		res.json(arrDogs.dogs);
-	}
-})
-
-module.exports = apiRouter
+app.post('/api/newDog', function(req, res){
+		var dog = req.body;
+		console.log(dog);
+		DataDogs.dogs.push(dog);
+		res.json(dog);
+  })
+}

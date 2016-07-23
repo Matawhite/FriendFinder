@@ -6,22 +6,20 @@ var path = require('path');
 var PORT = 8080;
 var app = express();
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
-//not working
-app.use("/assets", express.static(__dirname + "/public/assets/css"));
+//static files
+app.use(express.static(path.join(__dirname, 'app/public')));
 
 //html routes
 app.use('/', require('./app/routing/html-routes'));
-app.use('/survey', require('./app/routing/html-routes'));
 
 //api routes
-app.use('/api/:dogs?', require('./app/routing/html-routes'));
-app.use('/api/newdog', require('./app/routing/html-routes'));
+require("./app/routing/api-routes")(app);
+
 
 // Starts the server to begin listening
 // =============================================================
