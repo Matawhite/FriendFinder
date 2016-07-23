@@ -42,7 +42,7 @@
             <option>5</option>
           </select>
           <br>
-          <label for="sel3">Rate the breed's droolyness (it's a word).</label>
+          <label for="sel3">Rate the breed's drooliness (it's a word).</label>
           <br>
           <select class="form-control" id="sel3">
             <option>1</option>
@@ -71,7 +71,8 @@
             <option>4</option>
             <option>5</option>
           </select>
-          <button id="add-submit" type="submit" class="btn btn-default">Submit</button>
+          <br>
+          <button id="add-submit" type="submit" type="button" class="btn btn-primary">Submit</button>
           </form>
       </div>
     </div> <!-- end main container -->
@@ -83,7 +84,7 @@
       img: $('#img').val(),
       score: [$('#sel1').val(),$('#sel2').val(),$('#sel3').val(),$('#sel4').val(),$('#sel5').val()]
     }
-    $.post( "http://localhost:8080/api/newDog", newDog).done(function(data) {
+    $.post( "http://localhost:3000/api/newDog", newDog).done(function(data) {
 			}, function(err){
 				console.log(err);
 			});
