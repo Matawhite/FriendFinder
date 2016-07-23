@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
     <div class="container">
@@ -93,7 +94,7 @@
               </div>
               <div class="modal-body">
                 <p id="dogBreed"></p>
-                <img id="dogImg"src="" />
+                <img id="dogImg" src="" alt="" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -104,21 +105,22 @@
     </div> <!-- end main container -->
     <script type="text/javascript">
       $('#survey-submit').on('click', function(){
-        var surveyAns = {
-          val1: $('#sel1').val(),
-          val2: $('#sel2').val(),
-          val3: $('#sel3').val(),
-          val4: $('#sel4').val(),
-          val5: $('#sel5').val(),
-        };
-        console.log(surveyAns);
+        var surveyAns = [parseInt($('#sel1').val()),parseInt($('#sel2').val()),parseInt($('#sel3').val()),parseInt($('#sel4').val()),parseInt($('#sel5').val())];
+        var userTotal = surveyAns.reduce(function(a, b){
+          var sum = a + b;
+          return sum;
+        });
 
         $.get('/api/').done(function(data){
-          $('#dogBreed').html(data.dogs[0].breed);
-          $('#dogImg').append("<p>Target Hit</p>");
+          var matches = [];
+          for(var i = 0; i < data.dogs.length; i++){
+            if(Math.abs(data.dogs[i].total - userTotal <= data.dogs[i].total)){
+              $('#dogBreed').html(data.dogs[i].breed);
+              $('#dogImg').attr('src', data.dogs[i].imgURL);
+              return;
+              }
+            }
         })
-        //consider a get request where I pull data from the api then do for loop
-        //to compare value to generate a score
       })
     </script>
   </body>

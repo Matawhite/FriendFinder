@@ -82,8 +82,12 @@
     var newDog = {
       breed: $('#breed').val(),
       img: $('#img').val(),
-      score: [$('#sel1').val(),$('#sel2').val(),$('#sel3').val(),$('#sel4').val(),$('#sel5').val()]
+      score: [parseInt($('#sel1').val()),parseInt($('#sel2').val()),parseInt($('#sel3').val()),parseInt($('#sel4').val()),parseInt($('#sel5').val())]
     }
+    //I have to append the object because at time of object creation, javascript
+    //doesn't seem to know about this.score when inside the object...weird
+    newDog.total = newDog.score.reduce((a, b) => a + b, 0);
+
     $.post( "/api/newDog", newDog).done(function(data) {
 			}, function(err){
 				console.log(err);
