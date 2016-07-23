@@ -84,7 +84,7 @@
       img: $('#img').val(),
       score: [$('#sel1').val(),$('#sel2').val(),$('#sel3').val(),$('#sel4').val(),$('#sel5').val()]
     }
-    $.post( "https://localhost:5000/api/newDog", newDog).done(function(data) {
+    $.post( "/api/newDog", newDog).done(function(data) {
 			}, function(err){
 				console.log(err);
 			});
